@@ -55,7 +55,8 @@
 ### Scrap connections request:
 
    Assign token key and linkedIn username and password 
-		 ```
+		
+		
 		import requests
 
 		url = "http://127.0.0.1:8000/scrap-connections/"
@@ -73,7 +74,7 @@
 
 		print(response.text)
 
-		```
+		
    response = JSON object object of connections
 
 
