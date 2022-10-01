@@ -4,11 +4,11 @@
  	pip install -r requirements.txt
  
 ### Assign the chromedriver path in the code, linkedIn_scrap_api/internal_code/utils.py : 
-	 ```
+	 
 	# assign the chromedriver path
 	CHROMEDRIVER_PATH = r"D:\chromedriver.exe"
 
-	```
+	
 ### initializing django server: 
  	python manage.py runserver
 	
@@ -16,7 +16,7 @@
 ## API docs
 
 ### Register new user: 
-		 ```
+		 
 		import requests
 
 		url = "http://127.0.0.1:8000/auth/registration/"
@@ -30,12 +30,12 @@
 
 		print(response.text)
 
-		```
+		
 		
    response = Json file of Token Key 
    
 ### User Login: 
-		 ```
+		
 		import requests
 
 		url = "http://127.0.0.1:8000/auth/login/"
@@ -47,7 +47,7 @@
 
 		print(response.text)
 
-		```
+		
 		
    response = Json file of Token Key 
    
