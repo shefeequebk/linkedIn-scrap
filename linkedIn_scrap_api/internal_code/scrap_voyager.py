@@ -12,15 +12,16 @@ def scrap_connections(user_id_string, password_string):
     headers = {
         "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36"}
 
-    all_connection_details = []
-    loop_count = 0
+    all_page_connection_details = {}
+    page_count = 0
     print('CONNECTIONS SCRAPING')
     # The request query link runs for every 40 sets of connections until the length of the list of connections in the
     # response equals zero.
     while True:
-        print(f'SCRAPING CONNECTIONS FROM {loop_count * 40} TO {loop_count+1 * 40}')
-        start = loop_count * 40
-        loop_count += 1
+        page_connection_details = []
+        print(f'SCRAPING CONNECTIONS FROM {page_count * 40} TO {page_count + 1 * 40}')
+        start = page_count * 40
+        page_count += 1
         # Generates the voyager API URL for the next 40 connections
         connections_link = get_connections_link(start)
         req_session = requests.session()
@@ -58,9 +59,8 @@ def scrap_connections(user_id_string, password_string):
             if "emailAddress" in get_contact_link_res_json:
                 connection_details["emailAddress"] = get_contact_link_res_json["emailAddress"]
                 # print(get_contact_link_res_json)
-            all_connection_details.append(connection_details)
+            page_connection_details.append(connection_details)
             # print(connection_details)
-    # all_connection_details = json.dumps(all_connection_details)
-    return all_connection_details
-
-
+        all_page_connection_details[page_count]=page_connection_details
+    # all_page_connection_details = json.dumps(all_page_connection_details)
+    return all_page_connection_details
