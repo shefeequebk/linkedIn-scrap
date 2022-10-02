@@ -10,7 +10,7 @@
 
 	
 ### initializing django server: 
- 	python manage.py runserver
+ 	python linkedIn_scrap_api/manage.py runserver
 	
 	
 ## API docs
@@ -32,7 +32,7 @@
 
 		
 		
-   response = Json file of Token Key 
+   response = JSON object of Token Key 
    
 ### User Login: 
 		
@@ -49,12 +49,12 @@
 
 		
 		
-   response = Json file of Token Key 
+   response = JSON object of Token Key 
    
    
 ### Scrap connections request:
 
-   Assign token key and linkedIn username and password 
+   Assign token key, linkedIn username and password 
 		
 		
 		import requests
@@ -75,7 +75,7 @@
 		print(response.text)
 
 		
-   response = JSON object object of connections
+   response = JSON object of connections
 
 
 
